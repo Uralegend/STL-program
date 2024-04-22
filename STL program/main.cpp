@@ -18,3 +18,15 @@ char character(char start, int offset) {
     if (!isalpha(start)) {
         throw InvalidCharacterException();
     }
+    // Convert start to uppercase to simplify calculations
+    start = toupper(start);
+
+    // Check if offset is within the range of letters
+    if (!isalpha(start + offset)) {
+        throw InvalidRangeException();
+    }
+
+    // Calculate the character based on start and offset
+    char result = start + offset;
+    return result;
+}
