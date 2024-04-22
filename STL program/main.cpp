@@ -30,3 +30,27 @@ char character(char start, int offset) {
     char result = start + offset;
     return result;
 }
+int main() {
+    try {
+        // Test cases
+        std::cout << "Test Case 1: ";
+        std::cout << "Character: " << character('A', 3) << std::endl;
+
+        std::cout << "Test Case 2: ";
+        std::cout << "Character: " << character('z', -1) << std::endl;
+
+        std::cout << "Test Case 3: ";
+        std::cout << "Character: " << character('x', 5) << std::endl;
+
+        std::cout << "Test Case 4: ";
+        std::cout << "Character: " << character('1', 2) << std::endl;  // Invalid start character
+    }
+    catch (InvalidCharacterException& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+    catch (InvalidRangeException& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
