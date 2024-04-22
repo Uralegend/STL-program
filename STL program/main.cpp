@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cctype>  // Required for isalpha and toupper functions
 // Define custom exceptions
 class InvalidCharacterException : public std::exception {
     virtual const char* what() const throw() {
