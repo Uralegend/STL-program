@@ -1,14 +1,17 @@
 #include <iostream>
 #include <cctype>  // Required for isalpha and toupper functions
+
 // Define custom exceptions
 class InvalidCharacterException : public std::exception {
-    virtual const char* what() const throw() {
+public:
+    const char* what() const throw() override {
         return "Invalid character provided";
     }
 };
 
 class InvalidRangeException : public std::exception {
-    virtual const char* what() const throw() {
+public:
+    const char* what() const throw() override {
         return "Invalid offset range provided";
     }
 };
@@ -27,7 +30,8 @@ char character(char start, int offset) {
     if (!isalpha(result)) {
         throw InvalidRangeException();
     }
-return result;
+
+    return result;
 }
 
 int main() {
@@ -50,7 +54,6 @@ int main() {
         // Generic catch block for catching any other unhandled exceptions
         std::cerr << "Unhandled Exception: " << e.what() << std::endl;
     }
-
 
     return 0;
 }
